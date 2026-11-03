@@ -1,7 +1,7 @@
 import torch
 
-from facto.encoder import Encoder as _Encoder
-from facto.decoder import Decoder as _Decoder
+from facto.encoder import Encoder
+from facto.decoder import Decoder
 from facto.estimator import ContentEstimator, KMeans
 from facto.facto import Facto
 
@@ -88,13 +88,13 @@ def _check_variant(variant: str) -> None:
         raise ValueError(f"Unknown variant {variant!r}, expected one of {_VARIANTS}")
 
 
-def encoder(pretrained: bool = True, progress: bool = True) -> _Encoder:
+def encoder(pretrained: bool = True, progress: bool = True) -> Encoder:
     """WavLM-Large truncated to layer six.
 
     Maps 16 kHz audio of shape ``(B, 1, samples)`` to features of shape
     ``(B, T, 1024)`` at 50 Hz.
     """
-    model = _Encoder()
+    model = Encoder()
     if pretrained:
         state_dict = torch.hub.load_state_dict_from_url(
             f"{RELEASE_URL}/{_CHECKPOINTS['encoder']}",
@@ -109,7 +109,7 @@ def encoder(pretrained: bool = True, progress: bool = True) -> _Encoder:
 
 def decoder(
     variant: str = "12hz-8192", pretrained: bool = True, progress: bool = True
-) -> _Decoder:
+) -> Decoder:
     """HiFiGAN decoder and speaker embedder.
 
     Args:
@@ -119,7 +119,7 @@ def decoder(
     """
     _check_variant(variant)
     frame_rate = variant.split("-")[0]
-    model = _Decoder(**_DECODER_CONFIGS[frame_rate])
+    model = Decoder(**_DECODER_CONFIGS[frame_rate])
     if pretrained:
         state_dict = torch.hub.load_state_dict_from_url(
             f"{RELEASE_URL}/{_CHECKPOINTS[f'decoder-{variant}']}",
