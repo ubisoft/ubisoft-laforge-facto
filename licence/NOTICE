@@ -1,0 +1,5 @@
+All variants of the TTS model available in this repository are fine-tuned derivatives of the PleIAs/Monad model found here: https://huggingface.co/PleIAs/Monad, which is licensed under the Apache License 2.0.
+
+Modifications include updated model weights and additional entries in the tokenizer vocabulary.
+
+Please refer to the original license (found under MONAD_LICENCE in this repository) for more details on usage restrictions and permissions of the PleIAs/Monad model.
