@@ -180,8 +180,10 @@ torchrun --nproc-per-node 2 scripts/train_decoder.py LibriSpeech logs/12hz-8192 
 Passing `--kmeans` switches to the fine-tuning settings. The same pretrained decoder can initialize fine-tuning runs with different codebook sizes. Checkpoints and TensorBoard logs are written to the log directory, and the decoder weights are stored under the `decoder` key of each checkpoint.
 
 ### License 
-Please check license in ./license folder. 
-./license/LICENSE covering this project in general :   Ubisoft Machine Learning License
+Please check license in ./license folder.
+
+./license/LICENSE covering :
+For this project in general, copyrights are described in  Ubisoft Machine Learning License.
 
 ./license/MONAD_LICENCE covering :  
 All variants of the TTS model available in this repository are fine-tuned derivatives of the PleIAs/Monad model found here: https://huggingface.co/PleIAs/Monad, which is licensed under the Apache License 2.0.
