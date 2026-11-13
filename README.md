@@ -1,3 +1,4 @@
+Copyright Ubisoft(c) 2026
 # Factorized Self-Supervised Speech Tokenization
 
 **Benjamin van Niekerk**<sup>1,2,3</sup>, **Jean-Philippe Letendre**<sup>1</sup>, **Nicol Visser**<sup>4</sup>, **Hugo Seuté**<sup>1</sup>, **Herman Kamper**<sup>4</sup>, **Mirco Ravanelli**<sup>2,3</sup>
@@ -174,5 +175,6 @@ torchrun --nproc-per-node 2 scripts/train_decoder.py LibriSpeech logs/12hz-8192 
     --kmeans checkpoints/kmeans-12hz-8192.ckpt \
     --init-from logs/12hz-cont/<checkpoint>.ckpt
 ```
+Copyright Ubisoft(c) 2026
 
 Passing `--kmeans` switches to the fine-tuning settings. The same pretrained decoder can initialize fine-tuning runs with different codebook sizes. Checkpoints and TensorBoard logs are written to the log directory, and the decoder weights are stored under the `decoder` key of each checkpoint.
